@@ -22,6 +22,7 @@ public interface WebDriverConfig extends Config {
 
     @Key("browserSize")
     String getBrowserSize();
+
     @Key("remoteUrl")
     String getRemoteUrl();
 }
