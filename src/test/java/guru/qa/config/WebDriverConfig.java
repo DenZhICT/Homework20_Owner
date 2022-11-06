@@ -3,8 +3,8 @@ package guru.qa.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "@(environment).properties",
-        "local.properties"
+        "classpath:@(environment).properties",
+        "classpath:local.properties"
 }
 )
 public interface WebDriverConfig extends Config {

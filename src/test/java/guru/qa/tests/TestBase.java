@@ -17,7 +17,7 @@ public class TestBase {
     static void configure() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        if (env.equals("remote")) {
+        if (env != null && env.equals("remote")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
@@ -32,7 +32,7 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        if (env.equals("remote")) {
+        if (env != null && env.equals("remote")) {
             Attach.addVideo();
         }
     }
