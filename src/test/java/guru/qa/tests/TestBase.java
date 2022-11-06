@@ -1,0 +1,39 @@
+package guru.qa.tests;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import guru.qa.config.WebDriverProvider;
+import guru.qa.helper.Attach;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+public class TestBase {
+
+    final static String env = System.getProperty("environment");
+
+    @BeforeAll
+    static void configure() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        if (env.equals("remote")) {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
+            Configuration.browserCapabilities = capabilities;
+        }
+
+        new WebDriverProvider().setWebDriverConfiguration();
+    }
+
+    @AfterEach
+    void addAttachments() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        if (env.equals("remote")) {
+            Attach.addVideo();
+        }
+    }
+}

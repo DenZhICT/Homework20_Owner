@@ -1,0 +1,29 @@
+package guru.qa.config;
+
+import org.aeonbits.owner.Config;
+
+@Config.Sources({
+        "@(environment).properties",
+        "local.properties"
+}
+)
+public interface WebDriverConfig extends Config {
+
+    @Key("browserName")
+    String getBrowserName();
+
+    @Key("browserVersion")
+    String getBrowserVersion();
+
+    @Key("baseUrl")
+    String getBaseUrl();
+
+    @Key("remoteUrl")
+    String getRemoteUrl();
+
+    @Key("browserPosition")
+    String getBrowserPosition();
+
+    @Key("browserSize")
+    String getBrowserSize();
+}
