@@ -11,12 +11,13 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class TestBase {
 
-    final static String env = System.getProperty("environment");
-
     @BeforeAll
     static void configure() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
+        System.setProperty("environment","remote");
+
+        String env = System.getProperty("environment");
         if (env != null && env.equals("remote")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("enableVNC", true);
@@ -32,6 +33,7 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
+        String env = System.getProperty("environment");
         if (env != null && env.equals("remote")) {
             Attach.addVideo();
         }
