@@ -3,8 +3,8 @@ package guru.qa.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:@(environment).properties",
-        "classpath:local.properties"
+        "classpath:${environment}.properties",
+        "classpath:remote.properties",
 }
 )
 public interface WebDriverConfig extends Config {
@@ -18,12 +18,11 @@ public interface WebDriverConfig extends Config {
     @Key("baseUrl")
     String getBaseUrl();
 
-    @Key("remoteUrl")
-    String getRemoteUrl();
-
     @Key("browserPosition")
     String getBrowserPosition();
 
     @Key("browserSize")
     String getBrowserSize();
+    @Key("remoteUrl")
+    String getRemoteUrl();
 }
