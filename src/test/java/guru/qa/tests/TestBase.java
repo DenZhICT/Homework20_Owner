@@ -15,8 +15,6 @@ public class TestBase {
     static void configure() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        System.setProperty("environment","remote");
-
         String env = System.getProperty("environment");
         if (env != null && env.equals("remote")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();
