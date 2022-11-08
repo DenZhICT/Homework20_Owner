@@ -80,7 +80,7 @@ public class RegFormPage {
                 .checkRow("Date of Birth", newTime)
                 .checkRow("Subjects", strVersOfSubj.toString())
                 .checkRow("Hobbies", strVersOfHobbies.toString())
-                .checkRow("Picture", data.pict)
+                .checkRow("Picture", data.pict.substring(data.pict.lastIndexOf("/")+1))
                 .checkRow("Address", data.address)
                 .checkRow("State and City", data.stateAndCity[0] + " " + data.stateAndCity[1]);
         return this;

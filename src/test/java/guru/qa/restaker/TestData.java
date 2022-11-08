@@ -30,22 +30,22 @@ public class TestData {
     private String[] randomStateAndCity() {
         String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
         String curState = randomElement(states);
-        String[] citys = new String[0];
+        String[] cities = new String[0];
         switch (curState) {
             case ("NCR"):
-                citys = new String[]{"Delhi", "Gurgaon", "Noida"};
+                cities = new String[]{"Delhi", "Gurgaon", "Noida"};
                 break;
             case ("Uttar Pradesh"):
-                citys = new String[]{"Agra", "Lucknow", "Merrut"};
+                cities = new String[]{"Agra", "Lucknow", "Merrut"};
                 break;
             case ("Haryana"):
-                citys = new String[]{"Karnal", "Panipat"};
+                cities = new String[]{"Karnal", "Panipat"};
                 break;
             case ("Rajasthan"):
-                citys = new String[]{"Jaipur", "Jaiselmer"};
+                cities = new String[]{"Jaipur", "Jaiselmer"};
                 break;
         }
-        String curCity = randomElement(citys);
+        String curCity = randomElement(cities);
         return new String[]{curState, curCity};
     }
 
@@ -54,17 +54,17 @@ public class TestData {
     }
 
     private String notRandomPicture() {
-        return "photo.png";
+        return "data/photo.png";
     }
 
     private String[] randomHobbies() throws Exception {
-        Path pathHobbies = Path.of("src/test/resources/hobbies.text");
+        Path pathHobbies = Path.of("src/test/resources/data/hobbies.text");
         List<String> list = Files.readAllLines(pathHobbies);
         return randomArrayMaker(list);
     }
 
     private String[] randomSubjects() throws Exception {
-        Path pathSubjects = Path.of("src/test/resources/subjects.text");
+        Path pathSubjects = Path.of("src/test/resources/data/subjects.text");
         List<String> list = Files.readAllLines(pathSubjects);
         return randomArrayMaker(list);
     }
