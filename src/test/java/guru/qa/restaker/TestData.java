@@ -54,7 +54,7 @@ public class TestData {
     }
 
     private String notRandomPicture() {
-        return "src/test/resources/data/photo.png";
+        return "data/photo.png";
     }
 
     private String[] randomHobbies() throws Exception {

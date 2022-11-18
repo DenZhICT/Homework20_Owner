@@ -6,7 +6,6 @@ import guru.qa.pages.Component.Setter;
 import guru.qa.restaker.TestData;
 import org.openqa.selenium.Keys;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -93,7 +92,7 @@ public class RegFormPage {
     }
 
     private RegFormPage setPhoto(String pict) {
-        pictUpload.uploadFile(new File(pict));
+        pictUpload.uploadFromClasspath(pict);
         return this;
     }
 
